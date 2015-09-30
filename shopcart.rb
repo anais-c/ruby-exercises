@@ -16,9 +16,7 @@ class ShoppingCart
     end  
 
     if @items.length > 5
-      total*0.95
-    else     
-      total
+      total = total*0.95
     end  
 
     puts "Your total today is #{total} euros."  
