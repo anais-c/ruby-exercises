@@ -1,3 +1,4 @@
+puts "The exercise"
 # The exercise
 (1..100).each do |num|
   if num % 3 == 0 && num % 5 == 0
@@ -11,7 +12,7 @@
   end      
 end
 
-puts "--------------"
+puts "-------------- Iteration 2"
 
 # Iteration 2
 for num in (1..100)
@@ -26,42 +27,40 @@ for num in (1..100)
   end      
 end  
 
-puts "--------------"
+puts "--------------Iteration 3"
 
 # Iteration 3
-(1..100).each do |num|
-  if num % 3 == 0 && num % 5 == 0
-    if num.to_s[0] == "1"
-      puts "FizzBuzzBang"
-    else
-      puts "FizzBuzz"
-    end
-  elsif num % 3 == 0
-    if num.to_s[0] == "1"
-      puts "FizzBang"
-    else 
-      puts "Fizz"
-    end
-  elsif num % 5 == 0
-    if num.to_s[0] == "1"
-      puts "BuzzBang"
-    else
-      puts "Buzz"
-    end  
-  else
-    if num.to_s[0] == "1"
-      puts num.to_s + "Bang"
-    else
-      puts num
-    end
-  end          
-end        
 
-puts "--------------"
+final = []
+
+(1..100).each do |num|  
+
+  if num % 3 == 0 && num % 5 == 0
+    item = "FizzBuzz"
+  elsif num % 3 == 0
+    item = "Fizz"
+  elsif num % 5 == 0
+    item = "Buzz"   
+  else
+    item = num.to_s
+  end  
+
+  if num.to_s[0] == "1"  
+    item += "Bang"
+  end
+
+  final << item
+end
+
+puts final     
+
+puts "-------------- Iteration 4"
 
 # Iteration 4 
 (1..100).each do |num|
+
   result = ""
+
     if num % 3 == 0 && num % 5 == 0
       result << "Fizzbuzz" 
     elsif  num % 3 == 0
@@ -70,9 +69,12 @@ puts "--------------"
       result << "Buzz"
     else
       result << num.to_s
-    end  
-  puts result  
+    end 
+
+    puts result
 end
+
+
 
 
 
