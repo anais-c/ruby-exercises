@@ -1,7 +1,7 @@
 
 # First Iteration
 def solve_cipher(input)
-  
+
   letters = input.split('')
   numbers = []
   
@@ -23,13 +23,13 @@ def solve_cipher(input)
 end
 
 puts solve_cipher("ifmmpa")
-# should return "helloz"
+# should return "hello"
 
 puts "_______________________________"
 
 # Second Iteration
 def solve_cipher(input)
-  
+
   characters = input.scan(/./)
   numbers = []
   
@@ -57,3 +57,41 @@ def solve_cipher(input)
 end
 
 puts solve_cipher("ifmmpa. gmpxfs,")
+
+puts "_______________________________"
+
+# Third iteration
+def solve_cipher(input, n)
+
+  characters = input.scan(/./)
+  numbers = []
+  
+  characters.each do |letter|
+    if(letter.ord + n) > 122 
+      x = (letter.ord + n) - 122
+      number = 97 + x
+    elsif (letter.ord + n) < 97 && (letter.ord + n) > 71
+      x = 97 - (letter.ord + n)
+      number = 122 - (x - 1)
+    elsif letter.ord < 65
+      number = letter
+    else
+      number = letter.ord + n  
+    end  
+    numbers << number
+  end    
+
+  decipher = []
+
+  numbers.each do |num|
+    if (97..122).include?(num)
+      decipher << num.chr
+    else
+     decipher << num
+    end
+  end 
+
+  puts decipher
+end
+
+solve_cipher("pb uhdo qdph lv grqdog gxfn", -3)
